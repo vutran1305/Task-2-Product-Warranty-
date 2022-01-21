@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_product_warranty" model="ir.actions.act_window">
+        <field name="name">Product</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="domain">[('check_warranty','=',True)]</field>
+        <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('view_product_warranty_tree_inherit')}),
+                                                (0, 0, {'view_mode': 'form', 'view_id': ref('view_product_warranty_tree_inherit')})]"/>
+    </record>
+
+        <menuitem id="menu_product_warranty_valid"
+            name="My cart"
+            action="action_product_warranty"
+            sequence="9"
+            parent= "sale.sale_menu_root"/>
+    </data>
+</odoo>

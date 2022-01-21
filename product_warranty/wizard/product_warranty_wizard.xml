@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_mass_update_warranty_wizard" model="ir.ui.view" >
+        <field name="name">view.warranty.update</field>
+        <field name="model">product.warranty.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Batch Update">
+                <group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+
+                </group>
+                <p>
+                    Chọn thời gian bảo hành
+                </p>
+                <footer>
+                    <button string="Confirm" name="mass_update_product_warranty" type="object" default_focus="1" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_product_warrany_update" model="ir.actions.act_window">
+        <field name="name">Warranty Update</field>
+        <field name="res_model">product.warranty.wizard</field>
+        <field name="binding_model_id" ref="model_product_template"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_mass_update_warranty_wizard"/>
+
+    </record>
+
+</odoo>
