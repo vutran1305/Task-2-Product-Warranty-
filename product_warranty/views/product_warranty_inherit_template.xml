@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="product_warranty_inherit" name="My product Inherit" inherit_id="website_sale.product">
+            <xpath expr="//h1[@t-field='product.name']" position="after">
+                <h5 itemprop="name" t-field="product.product_warranty">Product warranty</h5>
+            </xpath>
+        </template>
+
+
+        <template id="product_warranty_cart_title_inherit" name="My product cart Inherit"
+                  inherit_id="website_sale.cart_lines">
+            <xpath expr="//th[@class='text-center td-price']" position="before">
+                <th class="text-center">Product Warranty</th>
+            </xpath>
+        </template>
+
+        <template id="product_warranty_cart_inherit" name="My product cart Inherit"
+                  inherit_id="website_sale.cart_lines">
+            <xpath expr="//td[@class='text-center td-price']" position="before">
+                <td t-if="line.product_id.product_warranty" class='td-product_warranty'>
+                    <div>
+                        <span t-field="line.product_id.product_warranty" style="font-size:13px;"/>
+                    </div>
+                </td>
+                <td t-else="">
+                    <div>
+                        <span/>
+                    </div>
+                </td>
+
+            </xpath>
+        </template>
+
+
+    </data>
+</odoo>

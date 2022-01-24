@@ -23,6 +23,8 @@
 
     # always loaded
     'data': [
+        'views/sale_order_form_inherit.xml',
+        'views/product_warranty_inherit_template.xml',
         'views/product_warranty_action_check_warranty.xml',
          'views/product_warranty_inherit.xml',
         'security/security.xml',

@@ -6,10 +6,10 @@
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='invoice_policy']" position="after">
-                    <field name="product_warranty"/>
-                     <field name="date_from"/>
-                     <field name="date_to"/>
+                <xpath expr="//field[@name='invoice_policy']" position="after" >
+                    <field name="product_warranty" groups="product_warranty.advance_sale_product_warranty"/>
+                     <field name="date_from"  groups="product_warranty.advance_sale_product_warranty" />
+                     <field name="date_to"  groups="product_warranty.advance_sale_product_warranty"/>
                      <field name="time_interval"/>
                      <field name="check_warranty"/>
                 </xpath>
@@ -42,8 +42,8 @@
            <field name="type">tree</field>
            <field name="inherit_id" ref="product.product_template_tree_view"/>
            <field name="arch" type="xml">
-                   <xpath expr="/tree/field[@name='default_code']" position="replace">
-                       <field name="product_warranty" />
+                   <xpath expr="/tree/field[@name='default_code']" position="after">
+                       <field name="product_warranty" groups="product_warranty.advance_sale_product_warranty"/>
                    </xpath>
                <xpath expr="/tree/field[@name='product_warranty']" position="after">
                        <field name="time_interval" />
