@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--            #Form view-->
+        <record id="view_approver_form_inherit" model="ir.ui.view">
+            <field name="name">approver.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='internal_notes']" position="after">
+                    <page string="The plan needs approval">
+                        <field name="approver_line" widget="section_and_note_one2many"
+                               domain ="[('state', '=', 'wait')]"
+                               force_save="1">
+                            <tree editable="bottom" create="false"  edit = 'false'>
+                                <field name="plan_id" readonly="1"/>
+                                <field name="state" readonly="1"/>
+                                <button class="btn btn-outline-success" name = 'action_button_approve' string="Approve" type="object"/>
+                                <button class="btn btn-outline-danger" name = 'action_button_deny' string="Deny" type="object"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
