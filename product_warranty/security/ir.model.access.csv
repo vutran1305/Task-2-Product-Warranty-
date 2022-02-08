@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_product_warranty_wizard,product.warranty.wizard,model_product_warranty_wizard,product_warranty.advance_sale_product_warranty,1,1,1,1
