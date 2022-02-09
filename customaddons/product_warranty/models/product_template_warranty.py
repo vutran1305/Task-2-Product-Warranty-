@@ -52,7 +52,7 @@ class ProducWarranty(models.Model):
             if not record.product_warranty or not record.date_to or not record.date_from:
                 record.time_interval = "Không bảo hành"
             else:
-                time = (record.date_to - datetime.now().date() ).days
+                time = (record.date_to - datetime.now().date()).days
                 if time < 0:
                     record.time_interval = "Hết hạn bảo hành"
                 elif time ==0 :

@@ -5,6 +5,7 @@ from odoo import models , fields ,api
 class SaleOrderWarranty(models.Model):
     _inherit = 'sale.order.line'
     discount_estimated = fields.Float('Sale order discount estimated"' , default = 0 , related = "product_id.sale_order_discount_estimated")
+
     @api.onchange("product_uom_qty")
     def _compute_sale_discount_estimated_(self):
         for record in self:
